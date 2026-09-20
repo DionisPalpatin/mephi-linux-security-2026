@@ -1,0 +1,53 @@
+    1  clear
+    2  history
+    3  ls
+    4  la
+    5  history
+    6  sudo groupadd students
+    7  sudo useradd -m -u 1234 user1
+    8  sudo usermod -aG students user1
+    9  sudo passwd user1
+   10  sudo chage -M 90 user1
+   11  sudo chage -l user1
+   12  sudo grep user1 /etc/passwd
+   13  sudo grep user1 /etc/group
+   14  sudo ls -alh /home/
+   15  sudo ls -alh /home/user1
+   16  clear
+   17  sudo find / -type f -perm -4000 -exec ls -l {} \; 2>/dev/null
+   18  clear
+   19  sudo ps -eo pid,ruid,euid,user,comm | awk "$3 == 0 && $2 != 0"
+   20  sudo ps -eo pid,ruid,euid,user,comm | awk '$3 == 0 && $2 != 0'
+   21  cat /etc/passwd
+   22  clear
+   23  cat /etc/shadow
+   24  cp "$(command -v cat)" ~/cat
+   25  ls -alh ~/cat
+   26  sudo chown root:root /home/daemo/cat
+   27  sudo chmod 4755 ~/cat
+   28  ls -alh ~/cat
+   29  ~/cat /etc/shadow
+   30  ~/cat /etc/shadow > /dev/null && echo "~/cat вернул код ноль, следовательно, операция успешно завершена"
+   31  clear
+   32  touch ~/test_chown
+   33  chown user1:user1 ~/test_chown
+   34  cp "$(command -v chown)" ~/chown
+   35  ls -l ~/chown
+   36  sudo setcap cap_chown+ep ~/chown
+   37  ls -l ~/chown
+   38  getcap ~/chown
+   39  ls -alh ~/test_chown
+   40  ~/chown user1:user1 ~/test_chown
+   41  ls -alh ~/test_chown
+   42  sudo ls /etc/sudoers.d
+   43  command -v date
+   44  which date
+   45  sudo visudo -f /etc/sudoers.d/user1-change-system-date
+   46  sudo ls /etc/sudoers.d
+   47  sudo visudo -c
+   48  sudo chmod 0440 /etc/sudoers.d/user1-change-system-date
+   49  sudo visudo -c
+   50  su - user1
+   51  sudo cat /etc/sudoers.d/user1-change-system-date
+   52  sudo -l
+   53  su - user1
